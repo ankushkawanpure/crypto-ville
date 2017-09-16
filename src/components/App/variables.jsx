@@ -1,58 +1,86 @@
-export const languages = [
+export const produce = [
     {
-        name: 'C',
-        year: 1972
+        name: "Apple",
+        price : "N/A"
     },
     {
-        name: 'C#',
-        year: 2000
+        name: "Apricot",
+        price : "N/A"
     },
     {
-        name: 'C++',
-        year: 1983
+        name: "Avacado",
+        price : "N/A"
     },
     {
-        name: 'Clojure',
-        year: 2007
+        name: "Banana",
+        price : "N/A"
     },
     {
-        name: 'Elm',
-        year: 2012
+        name: "Cherry",
+        price : "N/A"
     },
     {
-        name: 'Go',
-        year: 2009
+        name: "Citrus",
+        price : "N/A"
     },
     {
-        name: 'Haskell',
-        year: 1990
+        name: "Coconut",
+        price : "N/A"
     },
     {
-        name: 'Java',
-        year: 1995
+        name: "DragonFruit",
+        price : "N/A"
     },
     {
-        name: 'JavaScript',
-        year: 1995
+        name: "Durian",
+        price : "N/A"
     },
     {
-        name: 'Perl',
-        year: 1987
+        name: "Grapes",
+        price : "N/A"
     },
     {
-        name: 'PHP',
-        year: 1995
+        name: "Kiwi",
+        price : "N/A"
     },
     {
-        name: 'Python',
-        year: 1991
+        name: "Melon",
+        price : "N/A"
     },
     {
-        name: 'Ruby',
-        year: 1995
+        name: "Orange",
+        price : "N/A"
     },
     {
-        name: 'Scala',
-        year: 2003
+        name: "Papaya",
+        price : "N/A"
+    },
+    {
+        name: "Pear",
+        price : "N/A"
+    },
+    {
+        name: "Pineapple",
+        price : "N/A"
+    },
+    {
+        name: "Plum",
+        price : "N/A"
+    },
+    {
+        name: "Pomegranate",
+        price : "N/A"
+    },
+    {
+        name: "Raspberry",
+        price : "N/A"
+    },
+    {
+        name: "Strawberry",
+        price : "N/A"
+    },
+    {
+        name: "Watermelon",
+        price : "N/A"
     }
-];;
+];

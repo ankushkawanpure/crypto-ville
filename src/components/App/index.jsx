@@ -10,9 +10,7 @@ import SearchBar from 'components/SearchBar';
 
 import './index.css';
 
-import {
-	languages
-} from './variables';
+import {produce} from './variables';
 
 const renderSuggestion = suggestion =>
 	<div>
@@ -64,7 +62,7 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>CryptoVille</h2>
-					<SearchBar dictionary={languages} renderSuggestion={renderSuggestion}/>
+					<SearchBar dictionary={produce} renderSuggestion={renderSuggestion}/>
         </div>
 
 				{this.state.data.map(item =>
