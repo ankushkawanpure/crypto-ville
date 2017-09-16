@@ -8,7 +8,7 @@
 .App-logo {
 	box-shadow: 0 0 0 0 rgba(232, 76, 61, 0.7);
 	border-radius: 50%;
-  animation: App-logo-vibrate infinite 1.25s  cubic-bezier(0.66, 0, 0, 1);
+  animation: App-logo-vibrate infinite 4.5s  cubic-bezier(0.66, 0, 0, 1);
   height: 80px;
 }
 
