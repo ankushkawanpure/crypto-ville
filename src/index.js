@@ -1,8 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import {Router, Route, browserHistory} from 'react-router';
 
-// import App from 'components/App';
-// import App from 'components/ProducePage';
-import App from 'components/FarmerPage';
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.css';
+import App from './components/App';
+import ProducePage from './components/ProducePage';
+import FarmerPage from './components/FarmerPage';
+
+
+ReactDOM.render(
+    <Router
+        history={browserHistory}>
+        <Route path='/' component={App}></Route>
+        <Route path='/produce' component={ProducePage}></Route>
+        <Route path='/farmer' component={FarmerPage}></Route>
+    </Router>,
+    document.getElementById('root')
+);
