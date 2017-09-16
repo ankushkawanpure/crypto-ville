@@ -2,14 +2,12 @@ import React, {
 	Component
 } from 'react';
 
-import icon from 'assets/produces/banana.png';
-
 import './index.css';
 
 export default class ProduceItem extends Component {
 
 	getIcon =(name)=> {
-		return `./media/${name}.png`;
+		return `./media/produces/${name}.png`;
 	}
 
 	render() {
