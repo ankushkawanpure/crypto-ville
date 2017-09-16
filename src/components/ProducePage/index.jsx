@@ -62,6 +62,10 @@ export default class ProducePage extends Component {
 							{...moneyValueObj}
 							currencySymbol={currencySymbol}
 							/>
+
+						<div className="BuyButton">
+							Buy
+						</div>
 					</div>
 
 					<h2 className="FarmerListHeader">Farmers</h2>
