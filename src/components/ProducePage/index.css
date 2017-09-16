@@ -1,0 +1,7 @@
+.ProducePage {
+	padding-top: 4em;
+  text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
