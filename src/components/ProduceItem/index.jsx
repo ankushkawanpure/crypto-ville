@@ -14,6 +14,7 @@ export default class ProduceItem extends Component {
 		const {
 			name,
 			price,
+			currencySymbol,
 			farmerCount
 		} = this.props;
 
@@ -32,7 +33,7 @@ export default class ProduceItem extends Component {
 							</div>
 						</span>
 				</span>
-				<span className="ProducePrice">${price}</span>
+				<span className="ProducePrice">{currencySymbol}{price}</span>
 		  </div>
 		);
 	}

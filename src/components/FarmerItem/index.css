@@ -1,4 +1,4 @@
-.ProduceItem {
+.FarmerItem {
   width: 100%;
 	/*max-width: 450px;*/
   height: 90px;
@@ -9,47 +9,28 @@
 	margin-top: 1px;
 }
 
-.ProduceContainer {
-  margin-left: 1em;
+.FarmerContainer {
   display: flex;
   align-items: center;
 }
 
-.ProduceIconContainer {
-	background: gray;
-	border-radius: 100%;
-	width: 63px;
-	height: 63px;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.FarmerNameContainer {
+	margin-left: 1em;
 }
 
-.ProduceIcon {
-	width: 81%;
-	height: 81%;
-	background: white;
-	border: 3px solid lightgray;
-	border-radius: 100%;
-}
-
-.ProduceNameContainer {
-	margin-left: 0.5em;
-}
-
-.ProduceName {
+.FarmerName {
   color: white;
   font-weight: 100;
 	font-size: 1.35em;
 	text-align: left;
 }
 
-.FarmerCount {
+.FarmerLocation {
+	text-align: left;
 	color: gray;
 }
 
-.ProducePrice {
+.FarmerPrice {
   margin-right: 1em;
   color: black;
   background: azure;

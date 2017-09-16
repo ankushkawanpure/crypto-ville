@@ -1,4 +1,4 @@
-export const produce = [
+export const produces = [
     {
         name: "Apple",
         price : "N/A"

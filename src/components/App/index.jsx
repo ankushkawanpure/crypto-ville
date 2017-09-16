@@ -4,30 +4,34 @@ import React, {
 
 import logo from 'assets/logo.png';
 
+import NavBar from 'components/NavBar';
+
 import ProduceItem from 'components/ProduceItem';
 
 import SearchBar from 'components/SearchBar';
 
+import MoneyValue from 'components/MoneyValue';
+
+import {
+	getRandomInt,
+	getRandomArbitrary,
+	extractMoneyValue,
+} from 'utils';
+
 import './index.css';
 
-import {produce} from './variables';
+import {
+	produces
+} from './variables';
 
+// TODO: Make this into a clickable button
 const renderSuggestion = suggestion =>
 	<div>
     {suggestion.name}
   </div>;
 
+// TODO: Refactor the watch list into state variable to be managed by the search bar
 const sampleWatchList = ["Banana", "Apple", "Kiwi", "Durian", "Citrus", "Pear"];
-
-function getRandomArbitrary(min, max) {
-	return Math.random() * (max - min) + min;
-}
-
-function getRandomInt(min, max) {
-	min = Math.ceil(min);
-	max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min)) + min;
-}
 
 class App extends Component {
 
@@ -57,16 +61,23 @@ class App extends Component {
 	}
 
 	render() {
+		const balance = 14412.95;
+		const currencySymbol = '$'
+		const moneyValueObj = extractMoneyValue(balance);
+		const {valueFormated, floatingPoint} = moneyValueObj;
+		
 		return(
 			<div className="App">
-        <div className="App-header">
+				<NavBar secondaryTitle={`${currencySymbol}${valueFormated}.${floatingPoint}`} offsetThreshold='108' />
+
+      	<div className="App-header">
+					<MoneyValue {...moneyValueObj} currencySymbol={currencySymbol}/>
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>CryptoVille</h2>
-					<SearchBar dictionary={produce} renderSuggestion={renderSuggestion}/>
+					<SearchBar dictionary={produces} renderSuggestion={renderSuggestion}/>
         </div>
 
 				{this.state.data.map(item =>
-					<ProduceItem key={item.name} name={item.name} price={item.price} farmerCount={item.farmerCount} />
+					<ProduceItem key={item.name} name={item.name} price={item.price} farmerCount={item.farmerCount} currencySymbol={currencySymbol} />
 				)}
 
       </div>
