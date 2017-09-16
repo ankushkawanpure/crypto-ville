@@ -13,6 +13,10 @@ import SearchBar from 'components/SearchBar';
 import MoneyValue from 'components/MoneyValue';
 
 import {
+	fetchUserWatchlist
+} from 'api';
+
+import {
 	getRandomInt,
 	getRandomArbitrary,
 	extractMoneyValue,
@@ -30,9 +34,6 @@ const renderSuggestion = suggestion =>
     {suggestion.name}
   </div>;
 
-// TODO: Refactor the watch list into state variable to be managed by the search bar
-const sampleWatchList = ["Banana", "Apple", "Kiwi", "Durian", "Citrus", "Pear"];
-
 class App extends Component {
 
 	state = {
@@ -40,17 +41,8 @@ class App extends Component {
 	}
 
 	update() {
-		const newData = sampleWatchList.map((item) => {
-			return {
-				name: item,
-				price: getRandomArbitrary(1, 10)
-					.toFixed(3),
-				farmerCount: getRandomInt(10, 45)
-			}
-		})
-
 		this.setState({
-			data: newData
+			data: fetchUserWatchlist()
 		});
 	}
 
@@ -65,7 +57,7 @@ class App extends Component {
 		const currencySymbol = '$'
 		const moneyValueObj = extractMoneyValue(balance);
 		const {valueFormated, floatingPoint} = moneyValueObj;
-		
+
 		return(
 			<div className="App">
 				<NavBar secondaryTitle={`${currencySymbol}${valueFormated}.${floatingPoint}`} offsetThreshold='108' />

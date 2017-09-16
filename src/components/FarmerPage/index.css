@@ -1,0 +1,36 @@
+.ProducePage {
+	padding-top: 4em;
+  text-align: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.ProducePageHeader {
+	background-color: #222;
+	padding: 20px;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.BuyButton {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 39.6px;
+	width: 36%;
+	background: white;
+	color: black;
+	border-radius: 4.5px;
+}
+
+.ProduceListHeader {
+	text-align: left;
+	color: gray;
+	text-transform: uppercase;
+	font-size: 1em;
+	margin-left: 1em;
+}

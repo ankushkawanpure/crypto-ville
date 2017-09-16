@@ -18,12 +18,14 @@ export default class NavBar extends Component {
 			if (window.pageYOffset < this.props.offsetThreshold) {
 				this.setState({
 					height:'4em',
-					title: this.props.title
+					title: this.props.title,
+					subTitle: this.props.subTitle
 				});
 			} else {
 				this.setState({
 					height:'3.6em',
-					title: this.props.secondaryTitle
+					title: this.props.secondaryTitle,
+					subTitle: this.props.secondarySubTitle
 				});
 			}
 		});
@@ -41,8 +43,7 @@ export default class NavBar extends Component {
 				ref={this.handleRef}
 				className="NavBar" style={{height: this.state.height}}>
 				<h1 className="NavTitle">{this.state.title}</h1>
-				{subTitle &&
-					<h2 className="NavSubTitle">{subTitle}</h2>}
+				<h2 className="NavSubTitle">{subTitle || this.state.subTitle}</h2>
 				{showClose &&
 					<span className="CloseButton" onClick={onCloseClicked}>
 						<img className="CloseIcon" src={closeButton} alt="Close Button"/>
