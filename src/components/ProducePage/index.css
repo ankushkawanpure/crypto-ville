@@ -14,8 +14,8 @@
 
 .FarmerListHeader {
 	text-align: left;
-	color: white;
-	font-weight: lighter;
-	font-size: 1.44em;
-	margin-left: 0.63em;
+	color: gray;
+	text-transform: uppercase;
+	font-size: 1em;
+	margin-left: 1em;
 }
