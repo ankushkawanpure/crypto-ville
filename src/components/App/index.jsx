@@ -15,9 +15,7 @@ class App extends Component {
           <h2>CryptoVille</h2>
         </div>
 
-				<ProduceItem name="Banana" icon="" price="10" currency="Juste"/>
-
-
+				<ProduceItem name="Banana" price={10} farmerCount={45} />
 
 
       </div>
