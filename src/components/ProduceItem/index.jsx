@@ -2,14 +2,14 @@ import React, {
 	Component
 } from 'react';
 
-import icon from 'assets/logo.png';
+import icon from 'assets/produces/banana.png';
 
 import './index.css';
 
 export default class ProduceItem extends Component {
 
-	getIcon(name) {
-
+	getIcon =(name)=> {
+		return `./media/${name}.png`;
 	}
 
 	render() {
@@ -22,7 +22,9 @@ export default class ProduceItem extends Component {
 		return(
 			<div className="ProduceItem">
 				<span className="ProduceContainer">
-						<img className="ProduceIcon" src={icon}/>
+						<span className="ProduceIconContainer">
+							<img className="ProduceIcon" src={this.getIcon(name)} alt={name + ' icon'}/>
+						</span>
 						<span className="ProduceNameContainer">
 							<div className="ProduceName">
 								{name}

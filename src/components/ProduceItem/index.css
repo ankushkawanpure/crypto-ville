@@ -1,6 +1,6 @@
 .ProduceItem {
   width: 100%;
-  max-width: 450px;
+	/*max-width: 450px;*/
   height: 90px;
   display: flex;
   justify-content: space-between;
@@ -14,9 +14,20 @@
   align-items: center;
 }
 
+.ProduceIconContainer {
+	background: gray;
+	border-radius: 100%;
+	width: 63px;
+	height: 63px;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .ProduceIcon {
-  width: 63px;
-  height: 63px;
+	width: 90%;
+	height: 90%;
 }
 
 .ProduceNameContainer {
