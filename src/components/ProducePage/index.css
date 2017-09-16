@@ -5,3 +5,17 @@
 	flex-direction: column;
 	justify-content: center;
 }
+
+.ProducePageHeader {
+	background-color: #222;
+	padding: 20px;
+	color: white;
+}
+
+.FarmerListHeader {
+	text-align: left;
+	color: white;
+	font-weight: lighter;
+	font-size: 1.44em;
+	margin-left: 0.63em;
+}

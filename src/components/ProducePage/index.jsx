@@ -4,15 +4,17 @@ import React, {
 
 import {fetchProduceDetail, fetchProduceFarmers} from 'api';
 
-import {getRandomInt, getRandomArbitrary} from 'utils';
+import {
+	extractMoneyValue
+} from 'utils';
 
-import ProduceDetail from 'components/ProduceDetail';
+import MoneyValue from 'components/MoneyValue';
+
+import FarmerItem from 'components/FarmerItem';
 
 import NavBar from 'components/NavBar';
 
 import './index.css';
-
-const sampleFarmerList = ["Banana", "Apple", "Kiwi", "Durian", "Citrus", "Pear"];
 
 export default class ProducePage extends Component {
 
@@ -22,6 +24,7 @@ export default class ProducePage extends Component {
 	};
 
 	state = {
+		moneyValueObj: {},
 		produceData: {},
 		produceFarmers: []
 	}
@@ -44,15 +47,28 @@ export default class ProducePage extends Component {
 
 		const {produceData, produceFarmers} = this.state;
 
+		const moneyValueObj = extractMoneyValue(produceData.price);
+		const {valueFormated, floatingPoint} = moneyValueObj;
+
 		return(
 			<div className="ProducePage">
-				<NavBar title={`${name}`} secondaryTitle={`${name} - ${produceData.currencySymbol}${produceData.price}`}
-					subTitle={`${produceFarmers.length} farmers`} showClose/>
+				<NavBar title={`${name}`} secondaryTitle={`${name} - ${currencySymbol}${valueFormated}.${floatingPoint}`}
+					subTitle={`${produceFarmers.length} farmers`}
+					offsetThreshold='108'
+					showClose/>
 
-				<ProduceDetail
-					{...produceData}
-					currencySymbol={currencySymbol}
-					/>
+					<div className="ProducePageHeader">
+						<MoneyValue
+							{...moneyValueObj}
+							currencySymbol={currencySymbol}
+							/>
+					</div>
+
+					<h2 className="FarmerListHeader">Farmers</h2>
+
+					{produceFarmers.map((farmer) =>
+						<FarmerItem key={farmer.id} {...farmer}/>
+					)}
 
       </div>
 		);

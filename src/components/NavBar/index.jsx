@@ -10,7 +10,7 @@ export default class NavBar extends Component {
 
 	state={
 		height: '4em',
-		title: ''
+		title: this.props.title
 	}
 
 	handleRef=(ref)=>{
@@ -22,7 +22,7 @@ export default class NavBar extends Component {
 				});
 			} else {
 				this.setState({
-					height:'2.1em',
+					height:'3.6em',
 					title: this.props.secondaryTitle
 				});
 			}

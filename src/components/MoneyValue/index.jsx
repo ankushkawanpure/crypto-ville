@@ -3,6 +3,11 @@ import React from 'react'
 import './index.css';
 
 export default class MoneyValue extends React.Component {
+	static defaultProps = {
+		currencySymbol: '$',
+		valueString: '0',
+		floatingPoint: 0
+	};
 
 	render () {
 		const {

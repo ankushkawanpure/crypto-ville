@@ -1,0 +1,44 @@
+.FarmerItem {
+  width: 100%;
+	/*max-width: 450px;*/
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f1f1f;
+	margin-top: 1px;
+}
+
+.FarmerContainer {
+  display: flex;
+  align-items: center;
+}
+
+.FarmerNameContainer {
+	margin-left: 1em;
+}
+
+.FarmerName {
+  color: white;
+  font-weight: 100;
+	font-size: 1.35em;
+	text-align: left;
+}
+
+.FarmerLocation {
+	text-align: left;
+	color: gray;
+}
+
+.FarmerPrice {
+  margin-right: 1em;
+  color: black;
+  background: azure;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 36px;
+  border-radius: 9px;
+  font-size: 1.35em;
+}
