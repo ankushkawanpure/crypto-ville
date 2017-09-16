@@ -2,69 +2,9 @@ import React, {Component} from 'react';
 import Autosuggest from 'react-autosuggest';
 import "./index.css";
 
-const languages = [
-    {
-        name: 'C',
-        year: 1972
-    },
-    {
-        name: 'C#',
-        year: 2000
-    },
-    {
-        name: 'C++',
-        year: 1983
-    },
-    {
-        name: 'Clojure',
-        year: 2007
-    },
-    {
-        name: 'Elm',
-        year: 2012
-    },
-    {
-        name: 'Go',
-        year: 2009
-    },
-    {
-        name: 'Haskell',
-        year: 1990
-    },
-    {
-        name: 'Java',
-        year: 1995
-    },
-    {
-        name: 'JavaScript',
-        year: 1995
-    },
-    {
-        name: 'Perl',
-        year: 1987
-    },
-    {
-        name: 'PHP',
-        year: 1995
-    },
-    {
-        name: 'Python',
-        year: 1991
-    },
-    {
-        name: 'Ruby',
-        year: 1995
-    },
-    {
-        name: 'Scala',
-        year: 2003
-    }
-];
-
-
 const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
-const getSuggestions = value => {
+const getSuggestions = (value, dictionary) => {
     const escapedValue = escapeRegexCharacters(value.trim());
 
     if (escapedValue === '') {
@@ -73,16 +13,10 @@ const getSuggestions = value => {
 
     const regex = new RegExp('^' + escapedValue, 'i');
 
-    return languages.filter(language => regex.test(language.name));
+    return dictionary.filter(language => regex.test(language.name));
 };
 
 const getSuggestionValue = suggestion => suggestion.name;
-
-const renderSuggestion = suggestion =>
-    <div>
-    {suggestion.name}
-  </div>;
-
 
 class SearchBar extends Component {
     constructor() {
@@ -102,7 +36,7 @@ class SearchBar extends Component {
 
     onSuggestionsFetchRequested = ({ value }) => {
         this.setState({
-            suggestions: getSuggestions(value)
+            suggestions: getSuggestions(value, this.props.dictionary)
         });
     };
 
@@ -115,7 +49,7 @@ class SearchBar extends Component {
     render() {
         const { value, suggestions } = this.state;
         const inputProps = {
-            placeholder: "Search",
+            placeholder: "Search . . .",
             value,
             onChange: this.onChange
         };
@@ -126,7 +60,7 @@ class SearchBar extends Component {
                 onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                 onSuggestionsClearRequested={this.onSuggestionsClearRequested}
                 getSuggestionValue={getSuggestionValue}
-                renderSuggestion={renderSuggestion}
+                renderSuggestion={this.props.renderSuggestion}
                 inputProps={inputProps}
             />
         );
