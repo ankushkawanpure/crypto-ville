@@ -79,9 +79,9 @@ const getSuggestions = value => {
 const getSuggestionValue = suggestion => suggestion.name;
 
 const renderSuggestion = suggestion =>
-    <span>
+    <div>
     {suggestion.name}
-  </span>;
+  </div>;
 
 
 class SearchBar extends Component {
@@ -115,7 +115,7 @@ class SearchBar extends Component {
     render() {
         const { value, suggestions } = this.state;
         const inputProps = {
-            placeholder: "Type 'c'",
+            placeholder: "Search",
             value,
             onChange: this.onChange
         };
