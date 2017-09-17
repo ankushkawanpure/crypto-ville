@@ -3,6 +3,7 @@ import React, {
 } from 'react';
 
 import {
+	customHistory,
 	fetchProduceDetail
 } from 'api';
 
@@ -48,9 +49,17 @@ export default class BuyPage extends Component {
 
 	updateQuantity = (e) => {
 		const {value} = e.nativeEvent.target;
+		const quantity= parseInt(value, 0) || 0;
+
 		this.setState({
-			quantity: parseInt(value, 0) || 0
+			quantity
 		})
+	}
+
+	order =()=> {
+
+		// TODO: Make order here
+		customHistory.goBack();
 	}
 
 	render() {
@@ -74,54 +83,46 @@ export default class BuyPage extends Component {
 				<NavBar title={`${name}`} secondaryTitle={`${name} - ${currencySymbol}${valueFormated}.${floatingPoint}`}
 					offsetThreshold='108'
 					showHome/>
-				<div className="Level"> </div>
 
-				<div>
-					<span className="BuyContainer">
-						<span className="pulltoleft">
+				<div className="BuyContainer">
+						<span>
 							Quantity of {name}
 						</span>
 
-
-						<span className="pulltoright">
+						<span >
 							<input onChange={this.updateQuantity} type="text" className="inverse"/>
 						</span>
-					</span>
 				</div>
 
-				<div>
-					<span className="BuyContainer">
-						<span className="pulltoleft">
-							Marcket Price
+				<div className="BuyContainer">
+						<span>
+							Market Price
 						</span>
 
-
-						<span className="pulltoright">
+						<span>
 							{`${currencySymbol}${valueFormated}.${floatingPoint}`}
 						</span>
-					</span>
 				</div>
 
 
-				<div>
-					<span className="BuyContainer">
-						<span className="pulltoleft">
+				<div className="BuyContainer">
+						<span>
 							EST Cost
 						</span>
 
-
-						<span className="pulltoright">
-							{currencySymbol}{(this.state.quantity * produceData.price).toFixed(3)}
+						<span>
+							{currencySymbol}{(this.state.quantity * produceData.price).toFixed(2)}
 						</span>
-					</span>
 				</div>
 
-
-				<div className="bottomContainer">
-					<div className="BuyButton" >
-						Order
+				{
+					(this.state.quantity * produceData.price) > 0 &&
+					<div className="BuyButtonContainer">
+						<div className="BuyButton" onClick={this.order}>
+							Order
+						</div>
 					</div>
-				</div>
+				}
 			</div>
 		);
 	}
