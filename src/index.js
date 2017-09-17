@@ -11,7 +11,7 @@ import {
 import AnimatedSwitch from 'components/AnimatedSwitch';
 
 import {
-	customHistory
+	customHistory,
 } from 'api';
 
 import App from 'components/App';
@@ -28,7 +28,7 @@ ReactDOM.render(
 				<Route exact path="/" component={App}/>
 				<Route path="/produce/:name" component={ProducePage}/>
 				<Route path="/farmer/:id" component={FarmerPage}/>
-			<Route path="/buy/:name" component={BuyPage}/>
+				<Route path="/buy/:name" component={BuyPage}/>
 			</AnimatedSwitch>
 		</TransitionGroup>
 	</Router>,

@@ -1,8 +1,11 @@
 import {
 	getRandomInt,
-	getRandomArbitrary
+	getRandomArbitrary,
+	fetchdata
 } from 'utils';
 
+import {liskOption, liskAddress, liskKey} from 'variables';
+import lisk from 'lisk-js';
 import createBrowserHistory from 'history/createBrowserHistory'
 
 export const customHistory = createBrowserHistory()
@@ -18,10 +21,13 @@ const sampleFarmerList = [
 	"Pear Dope"
 ];
 
+
+
 const sampleFarmerLocation = [
 	"Henrietta NY",
 	"Derpy Land"
 ];
+const LSK = lisk.api(liskOption);
 
 export function fetchProduceDetail(name) {
 	return {
@@ -70,4 +76,15 @@ export function fetchUserWatchlist() {
 			farmerCount: getRandomInt(10, 45)
 		}
 	})
+};
+
+export function fetchLiskdetail() {
+
+    // return new Promise(resolve, reject) {
+    //     LSK.getAccount(liskAddress, function ({success, data}) {
+		// 	console.log(data);
+		// 	resolve(data);
+    //     });
+    // }
+
 };

@@ -13,12 +13,17 @@ import SearchBar from 'components/SearchBar';
 import MoneyValue from 'components/MoneyValue';
 
 import {
-	fetchUserWatchlist
-} from 'api';
+	fetchUserWatchlist,
+	fetchLiskdetail
+} from '../../api';
+
 
 import {
 	extractMoneyValue,
+
 } from 'utils';
+
+// import {fetchdata} from '../../utils';
 
 import {
 	produces,
@@ -36,7 +41,8 @@ const renderSuggestion = suggestion =>
 export default class App extends Component {
 
 	state = {
-		data: []
+		data: [],
+		balance : 0
 	}
 
 	update() {
@@ -50,13 +56,17 @@ export default class App extends Component {
 	}
 
 	componentWillMount() {
+        // fetchdata();
 		this.updateInterval = setInterval(() => {
 			this.update();
 		}, 450);
+
+
+		fetchLiskdetail();
 	}
 
 	render() {
-		const balance = 14412.95;
+		const {balance} = this.state;
 		const moneyValueObj = extractMoneyValue(balance);
 		const {valueFormated, floatingPoint} = moneyValueObj;
 

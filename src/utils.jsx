@@ -25,3 +25,14 @@ export function extractMoneyValue(value) {
 		floatingPoint: tmp[1]
 	}
 }
+
+export function fetchdata() {
+
+    // The fetch's `then` gets a Response instance back
+    fetch('http://localhost:3001/users', {mode: 'cors'})
+        .then(function(responseObj) {
+            console.log('status: ', responseObj.status);
+            console.log(responseObj);
+        });
+
+}
