@@ -34,8 +34,12 @@ export default class ProducePage extends Component {
 		});
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.updateInterval)
+	}
+
 	componentWillMount() {
-		setInterval(() => {
+		this.updateInterval = setInterval(() => {
 			this.update();
 		}, 450);
 	}
