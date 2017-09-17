@@ -18,6 +18,10 @@ import NavBar from 'components/NavBar';
 
 import './index.css';
 
+import {
+    Link
+} from 'react-router-dom';
+
 export default class ProducePage extends Component {
 
 	static defaultProps = {
@@ -70,9 +74,11 @@ export default class ProducePage extends Component {
 							currencySymbol={currencySymbol}
 							/>
 
-						<div className="BuyButton">
+
+						<Link className="BuyButton" to={`/buy/${name}`}>
 							Buy
-						</div>
+						</Link>
+
 					</div>
 
 					<h2 className="FarmerListHeader">Farmers</h2>
