@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "animated": "^0.2.0",
+    "lisk-js": "^0.4.5",
     "react": "^15.6.1",
     "react-autosuggest": "^9.3.2",
     "react-dom": "^15.6.1",
