@@ -1,3 +1,5 @@
+export const liskAddress = "13720472845555216071L";
+
 export const liskKey = "good swamp brass scissors useful useful surround sock local liquid swim lady";
 
 export const liskOption = {
