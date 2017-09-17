@@ -1,4 +1,4 @@
-.ProducePage {
+.FarmerPage {
 	padding-top: 4em;
   text-align: center;
 	display: flex;
@@ -6,7 +6,7 @@
 	justify-content: center;
 }
 
-.ProducePageHeader {
+.FarmerPage .FarmerPageHeader {
 	background-color: #222;
 	padding: 20px;
 	color: white;
@@ -16,15 +16,15 @@
 	align-items: center;
 }
 
-.BuyButton {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 39.6px;
-	width: 36%;
-	background: white;
-	color: black;
-	border-radius: 4.5px;
+.FarmerPage .FarmerName {
+	font-size: 1.8em;
+	margin-bottom: 0;
+}
+
+.FarmerPage .FarmerLocation {
+	margin-top: 0;
+	font-size: 1.35em;
+	color: gray;
 }
 
 .ProduceListHeader {

@@ -45,7 +45,7 @@ export function fetchFarmerDetail(id) {
 	return {
 		id,
 		name: sampleFarmerList[id],
-		location: sampleFarmerLocation[id]
+		location: sampleFarmerLocation[id%2]
 	}
 };
 
