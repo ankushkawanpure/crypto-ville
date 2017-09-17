@@ -17,16 +17,15 @@ import {
 } from 'api';
 
 import {
-	getRandomInt,
-	getRandomArbitrary,
 	extractMoneyValue,
 } from 'utils';
 
-import './index.css';
-
 import {
-	produces
-} from './variables';
+	produces,
+	currencySymbol
+} from 'variables';
+
+import './index.css';
 
 // TODO: Make this into a clickable button
 const renderSuggestion = suggestion =>
@@ -46,15 +45,18 @@ class App extends Component {
 		});
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.updateInterval)
+	}
+
 	componentWillMount() {
-		setInterval(() => {
+		this.updateInterval = setInterval(() => {
 			this.update();
 		}, 450);
 	}
 
 	render() {
 		const balance = 14412.95;
-		const currencySymbol = '$'
 		const moneyValueObj = extractMoneyValue(balance);
 		const {valueFormated, floatingPoint} = moneyValueObj;
 
@@ -69,7 +71,7 @@ class App extends Component {
         </div>
 
 				{this.state.data.map(item =>
-					<ProduceItem key={item.name} name={item.name} price={item.price} farmerCount={item.farmerCount} currencySymbol={currencySymbol} />
+					<ProduceItem key={item.name} name={item.name} price={item.price} farmerCount={item.farmerCount} currencySymbol={currencySymbol}/>
 				)}
 
       </div>

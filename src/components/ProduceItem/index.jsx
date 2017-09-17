@@ -4,9 +4,14 @@ import React, {
 
 import './index.css';
 
+import {
+	Link
+} from 'react-router-dom'
+
+
 export default class ProduceItem extends Component {
 
-	getIcon =(name)=> {
+	getIcon = (name) => {
 		return `./media/produces/${name}.png`;
 	}
 
@@ -19,7 +24,7 @@ export default class ProduceItem extends Component {
 		} = this.props;
 
 		return(
-			<div className="ProduceItem">
+			<Link className="ProduceItem" to={`/produce/${name}`}>
 				<span className="ProduceContainer">
 						<span className="ProduceIconContainer">
 							<img className="ProduceIcon" src={this.getIcon(name)} alt={name + ' icon'}/>
@@ -34,7 +39,7 @@ export default class ProduceItem extends Component {
 						</span>
 				</span>
 				<span className="ProducePrice">{currencySymbol}{price}</span>
-		  </div>
+			</Link>
 		);
 	}
 }

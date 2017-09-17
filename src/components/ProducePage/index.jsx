@@ -8,6 +8,8 @@ import {
 	extractMoneyValue
 } from 'utils';
 
+import {currencySymbol} from 'variables';
+
 import MoneyValue from 'components/MoneyValue';
 
 import FarmerItem from 'components/FarmerItem';
@@ -19,7 +21,6 @@ import './index.css';
 export default class ProducePage extends Component {
 
 	static defaultProps = {
-		name: 'Banana',
 		currencySymbol: '$'
 	};
 
@@ -30,20 +31,26 @@ export default class ProducePage extends Component {
 	}
 
 	update() {
+		const {name} = this.props.match.params;
+
 		this.setState({
-			produceData: fetchProduceDetail(this.props.name),
-			produceFarmers: fetchProduceFarmers(this.props.name)
+			produceData: fetchProduceDetail(name),
+			produceFarmers: fetchProduceFarmers(name)
 		});
 	}
 
+	componentWillUnmount() {
+		clearInterval(this.updateInterval)
+	}
+
 	componentWillMount() {
-		setInterval(() => {
+		this.updateInterval = setInterval(() => {
 			this.update();
 		}, 450);
 	}
 
 	render() {
-		const {name, currencySymbol} = this.props;
+		const {name} = this.props.match.params;
 
 		const {produceData, produceFarmers} = this.state;
 

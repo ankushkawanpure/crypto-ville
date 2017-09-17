@@ -7,8 +7,6 @@ import {
 	fetchFarmerProduces
 } from 'api';
 
-import MoneyValue from 'components/MoneyValue';
-
 import ProduceItem from 'components/ProduceItem';
 
 import NavBar from 'components/NavBar';
@@ -41,11 +39,9 @@ export default class ProducePage extends Component {
 	}
 
 	render() {
-		const {id, currencySymbol} = this.props;
-
 		const {farmerProduces, farmerDetail} = this.state;
 
-		const {name, location, price} = farmerDetail;
+		const {name, location} = farmerDetail;
 
 		return(
 			<div className="ProducePage">
@@ -57,6 +53,7 @@ export default class ProducePage extends Component {
 
 					<div className="ProducePageHeader">
 						{farmerDetail.name}
+						{location}
 					</div>
 
 					<h2 className="ProduceListHeader">Produces</h2>

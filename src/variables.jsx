@@ -1,3 +1,5 @@
+export const currencySymbol = '$';
+
 export const produces = [
     {
         name: "Apple",

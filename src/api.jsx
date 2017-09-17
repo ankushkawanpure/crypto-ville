@@ -3,6 +3,10 @@ import {
 	getRandomArbitrary
 } from 'utils';
 
+import createBrowserHistory from 'history/createBrowserHistory'
+
+export const customHistory = createBrowserHistory()
+
 const sampleProduceList = ["Banana", "Apple", "Kiwi", "Durian", "Citrus", "Pear"];
 
 const sampleFarmerList = [

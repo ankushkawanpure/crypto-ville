@@ -1,19 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, browserHistory} from 'react-router';
+
+import {
+	Router,
+	Route,
+	Switch
+} from 'react-router-dom';
+
+import {customHistory} from 'api';
+
+import App from 'components/App';
+import ProducePage from 'components/ProducePage';
+import FarmerPage from 'components/FarmerPage';
 
 import './index.css';
-import App from './components/App';
-import ProducePage from './components/ProducePage';
-import FarmerPage from './components/FarmerPage';
-
 
 ReactDOM.render(
-    <Router
-        history={browserHistory}>
-        <Route path='/' component={App}></Route>
-        <Route path='/produce' component={ProducePage}></Route>
-        <Route path='/farmer' component={FarmerPage}></Route>
-    </Router>,
-    document.getElementById('root')
+	<Router history={customHistory}>
+		<Switch>
+			<Route exact path="/" component={App}/>
+			<Route path="/produce/:name" component={ProducePage}/>
+			<Route path="/farmer/:id" component={FarmerPage}/>
+		</Switch>
+	</Router>,
+	document.getElementById('root')
 );
