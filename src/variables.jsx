@@ -1,6 +1,8 @@
+export const farmerAddress = "16031591782558841517L";
+
 export const liskAddress = "13720472845555216071L";
 
-export const liskKey = "good swamp brass scissors useful useful surround sock local liquid swim lady";
+export const liskPassphrase = "good swamp brass scissors useful useful surround sock local liquid swim lady";
 
 export const liskOption = {
     ssl: false, // Default false. Set to true to enable the https instead of http protocol.

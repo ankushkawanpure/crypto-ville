@@ -1,10 +1,13 @@
 import {
 	getRandomInt,
-	getRandomArbitrary,
-	fetchdata
+	getRandomArbitrary
 } from 'utils';
 
-import {liskOption, liskAddress, liskKey} from 'variables';
+import {
+	liskOption,
+	liskAddress,
+	liskPassphrase
+} from 'variables';
 import lisk from 'lisk-js';
 import createBrowserHistory from 'history/createBrowserHistory'
 
@@ -21,12 +24,11 @@ const sampleFarmerList = [
 	"Pear Dope"
 ];
 
-
-
 const sampleFarmerLocation = [
 	"Henrietta NY",
 	"Derpy Land"
 ];
+
 const LSK = lisk.api(liskOption);
 
 export function fetchProduceDetail(name) {
@@ -41,7 +43,8 @@ export function fetchProduceFarmers(produceName) {
 			id: i,
 			name: sampleFarmerList[getRandomInt(0, sampleFarmerList.length)],
 			location: sampleFarmerLocation[getRandomInt(0, sampleFarmerLocation.length)],
-			price: getRandomArbitrary(1, 10).toFixed(3)
+			price: getRandomArbitrary(1, 10)
+				.toFixed(3)
 		}
 	})
 };
@@ -51,7 +54,7 @@ export function fetchFarmerDetail(id) {
 	return {
 		id,
 		name: sampleFarmerList[id],
-		location: sampleFarmerLocation[id%2]
+		location: sampleFarmerLocation[id % 2]
 	}
 };
 
@@ -78,13 +81,43 @@ export function fetchUserWatchlist() {
 	})
 };
 
-export function fetchLiskdetail() {
+export function fetchLiskAcountDetail() {
+	return new Promise(function (resolve, reject) {
+		LSK.getAccount(liskAddress, function (resp) {
+			if(!resp.success) {
+				return reject(resp.error)
+			}
 
-    // return new Promise(resolve, reject) {
-    //     LSK.getAccount(liskAddress, function ({success, data}) {
-		// 	console.log(data);
-		// 	resolve(data);
-    //     });
-    // }
-
+			resolve(resp.account)
+		});
+	});
 };
+
+export function sendPayment(address, amount) {
+	const realAmount = amount * 10e7;
+
+	return new Promise(function(resolve, reject) {
+
+		LSK.sendRequest('transactions', { secret: liskPassphrase, amount: realAmount, recipientId: address } , function (resp) {
+			LSK.lastQuery = resp;
+			if (!resp.success) {
+				return reject(resp.error)
+			}
+
+			resolve(resp.transactionId)
+		});
+	});
+};
+
+export function fetchUserData() {
+
+	// The fetch's `then` gets a Response instance back
+	fetch('http://localhost:3001/users', {
+			mode: 'cors'
+		})
+		.then(function (responseObj) {
+			console.log('status: ', responseObj.status);
+			console.log(responseObj);
+		});
+
+}

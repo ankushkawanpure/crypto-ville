@@ -9,6 +9,7 @@
     "react-autosuggest": "^9.3.2",
     "react-dom": "^15.6.1",
     "react-overlays": "^0.8.1",
+    "react-progress-button": "^5.0.4",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.13",
     "react-transition-group": "^2.2.0"

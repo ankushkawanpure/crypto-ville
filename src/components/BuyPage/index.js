@@ -4,7 +4,8 @@ import React, {
 
 import {
 	customHistory,
-	fetchProduceDetail
+	fetchProduceDetail,
+	sendPayment
 } from 'api';
 
 import {
@@ -12,8 +13,11 @@ import {
 } from 'utils';
 
 import {
+	farmerAddress,
 	currencySymbol
 } from 'variables';
+
+import ProgressButton from 'react-progress-button'
 
 import NavBar from 'components/NavBar';
 
@@ -24,6 +28,7 @@ export default class BuyPage extends Component {
 	state = {
 		moneyValueObj: {},
 		produceData: {},
+		buttonState: '',
 		quantity: 0
 	}
 
@@ -56,10 +61,24 @@ export default class BuyPage extends Component {
 		})
 	}
 
-	order =()=> {
+	order = async () =>{
 
-		// TODO: Make order here
-		customHistory.goBack();
+		// TODO: Make order here, IMPROVE IT TO SUPPORT FROM API
+		const {quantity, produceData} = this.state;
+		const amount = (quantity * produceData.price).toFixed(2);
+
+		this.setState({buttonState: 'loading'})
+
+		// const transaction =
+		await sendPayment(farmerAddress, amount);
+
+		// console.log(transaction);
+
+		this.setState({buttonState: 'success'})
+
+		setTimeout(function () {
+			customHistory.goBack();
+		}, 900);
 	}
 
 	render() {
@@ -118,9 +137,9 @@ export default class BuyPage extends Component {
 				{
 					(this.state.quantity * produceData.price) > 0 &&
 					<div className="BuyButtonContainer">
-						<div className="BuyButton" onClick={this.order}>
-							Order
-						</div>
+						<ProgressButton onClick={this.order} state={this.state.buttonState}>
+								Order
+						</ProgressButton>
 					</div>
 				}
 			</div>

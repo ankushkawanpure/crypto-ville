@@ -14,16 +14,13 @@ import MoneyValue from 'components/MoneyValue';
 
 import {
 	fetchUserWatchlist,
-	fetchLiskdetail
-} from '../../api';
+	fetchLiskAcountDetail
+} from 'api';
 
 
 import {
 	extractMoneyValue,
-
 } from 'utils';
-
-// import {fetchdata} from '../../utils';
 
 import {
 	produces,
@@ -61,8 +58,15 @@ export default class App extends Component {
 			this.update();
 		}, 450);
 
+		this.getBalance()
+	}
 
-		fetchLiskdetail();
+	async getBalance(){
+		const accountDetail = await fetchLiskAcountDetail();
+		this.setState({
+			accountDetail,
+			balance: accountDetail.balance / 1e8
+		});
 	}
 
 	render() {
