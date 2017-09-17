@@ -78,7 +78,7 @@ export function fetchFarmerProduces(id) {
 
 export function addToWatchlist(item){
 	if (!sampleWatchList.includes(item)) {
-		sampleWatchList.push(item);
+		sampleWatchList.unshift(item);
 	}
 }
 

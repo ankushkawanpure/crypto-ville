@@ -39,9 +39,10 @@ export default class FarmerPage extends Component {
 	}
 
 	componentWillMount() {
+		this.update();
 		this.updateInterval = setInterval(() => {
 			this.update();
-		}, 450);
+		}, 1800);
 	}
 
 	render() {

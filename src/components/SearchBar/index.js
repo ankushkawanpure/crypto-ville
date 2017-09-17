@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import Autosuggest from 'react-autosuggest';
+
+import {addToWatchlist} from 'api';
+
 import "./index.css";
 
 const escapeRegexCharacters = str => str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -46,9 +49,22 @@ class SearchBar extends Component {
         });
     };
 
+		handleSuggestionClick=(name)=>{
+			this.setState({
+				value: ''
+			});
+			addToWatchlist(name)
+		}
+
+		renderSuggestion = ({name}) =>
+			<div onClick={this.handleSuggestionClick.bind(this, name)}>
+		    {name}
+		  </div>;
+
     render() {
         const { value, suggestions } = this.state;
-        const inputProps = {
+
+				const inputProps = {
             placeholder: "Search . . .",
             value,
             onChange: this.onChange
@@ -60,7 +76,7 @@ class SearchBar extends Component {
                 onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                 onSuggestionsClearRequested={this.onSuggestionsClearRequested}
                 getSuggestionValue={getSuggestionValue}
-                renderSuggestion={this.props.renderSuggestion}
+                renderSuggestion={this.renderSuggestion}
                 inputProps={inputProps}
             />
         );

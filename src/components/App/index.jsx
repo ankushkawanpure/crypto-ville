@@ -29,12 +29,6 @@ import {
 
 import './index.css';
 
-// TODO: Make this into a clickable button
-const renderSuggestion = suggestion =>
-	<div>
-    {suggestion.name}
-  </div>;
-
 export default class App extends Component {
 
 	state = {
@@ -53,12 +47,14 @@ export default class App extends Component {
 	}
 
 	componentWillMount() {
-        // fetchdata();
-		this.updateInterval = setInterval(() => {
-			this.update();
-		}, 450);
+		this.update();
 
 		this.getBalance()
+
+		this.updateInterval = setInterval(() => {
+			this.update();
+		}, 1800);
+
 	}
 
 	async getBalance(){
@@ -81,7 +77,7 @@ export default class App extends Component {
       	<div className="App-header">
 					<MoneyValue {...moneyValueObj} currencySymbol={currencySymbol}/>
           <img src={logo} className="App-logo" alt="logo" />
-					<SearchBar dictionary={produces} renderSuggestion={renderSuggestion}/>
+					<SearchBar dictionary={produces}/>
         </div>
 
 				{this.state.data.map(item =>
