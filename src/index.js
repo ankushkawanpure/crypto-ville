@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+
 import {
 	Router,
-	Route,
-	Switch
+	Route
 } from 'react-router-dom';
 
-import {customHistory} from 'api';
+import AnimatedSwitch from 'components/AnimatedSwitch';
+
+import {
+	customHistory
+} from 'api';
 
 import App from 'components/App';
 import ProducePage from 'components/ProducePage';
@@ -18,12 +23,14 @@ import './index.css';
 
 ReactDOM.render(
 	<Router history={customHistory}>
-		<Switch>
-			<Route exact path="/" component={App}/>
-			<Route path="/produce/:name" component={ProducePage}/>
-			<Route path="/farmer/:id" component={FarmerPage}/>
+		<TransitionGroup>
+			<AnimatedSwitch>
+				<Route exact path="/" component={App}/>
+				<Route path="/produce/:name" component={ProducePage}/>
+				<Route path="/farmer/:id" component={FarmerPage}/>
 			<Route path="/buy/:name" component={BuyPage}/>
-		</Switch>
+			</AnimatedSwitch>
+		</TransitionGroup>
 	</Router>,
 	document.getElementById('root')
 );

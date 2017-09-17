@@ -33,7 +33,7 @@ const renderSuggestion = suggestion =>
     {suggestion.name}
   </div>;
 
-class App extends Component {
+export default class App extends Component {
 
 	state = {
 		data: []
@@ -78,5 +78,3 @@ class App extends Component {
 		);
 	}
 }
-
-export default App;

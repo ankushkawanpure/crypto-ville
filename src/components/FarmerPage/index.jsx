@@ -13,7 +13,7 @@ import NavBar from 'components/NavBar';
 
 import './index.css';
 
-export default class ProducePage extends Component {
+export default class FarmerPage extends Component {
 
 	static defaultProps = {
 		id: 0,
@@ -50,16 +50,16 @@ export default class ProducePage extends Component {
 		const {name, location} = farmerDetail;
 
 		return(
-			<div className="ProducePage">
+			<div className="FarmerPage">
 				<NavBar
 					secondaryTitle={`${name}`}
 					secondarySubTitle={`${farmerProduces.length} produces`}
 					offsetThreshold='108'
 					showHome/>
 
-					<div className="ProducePageHeader">
-						{farmerDetail.name}
-						{location}
+				<div className="FarmerPageHeader">
+						<h1 className="FarmerName">{name}</h1>
+						<h2 className="FarmerLocation">{location}</h2>
 					</div>
 
 					<h2 className="ProduceListHeader">Produces</h2>
