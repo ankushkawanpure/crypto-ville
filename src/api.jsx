@@ -13,7 +13,13 @@ import createBrowserHistory from 'history/createBrowserHistory'
 
 export const customHistory = createBrowserHistory()
 
-const sampleProduceList = ["Banana", "Apple", "Kiwi", "Durian", "Citrus", "Pear"];
+const sampleWatchList = [
+	"Banana", "Apple", "Kiwi", "Durian", "Citrus", "Pear"
+];
+
+const sampleProduceList = [
+	"Banana", "Apple", "Kiwi", "Durian", "Citrus", "Pear"
+];
 
 const sampleFarmerList = [
 	"Henrietta Food",
@@ -70,8 +76,14 @@ export function fetchFarmerProduces(id) {
 	})
 };
 
+export function addToWatchlist(item){
+	if (!sampleWatchList.includes(item)) {
+		sampleWatchList.push(item);
+	}
+}
+
 export function fetchUserWatchlist() {
-	return sampleProduceList.map((item) => {
+	return sampleWatchList.map((item) => {
 		return {
 			name: item,
 			price: getRandomArbitrary(1, 10)

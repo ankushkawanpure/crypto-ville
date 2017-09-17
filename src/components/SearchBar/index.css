@@ -4,20 +4,22 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
 	width: 100%;
 }
 
 .react-autosuggest__input {
   width: 90%;
-  height: 30px;
+  height: 45px;
   font-weight: 300;
   font-size: 16px;
-  border: 0px;
+  border: none;
   background: black;
   color: white;
   border-radius: 4px;
   -webkit-appearance: none;
 	padding: 10px 20px;
+	box-sizing: border-box;
 }
 
 .react-autosuggest__input--focused {
@@ -37,13 +39,13 @@
   display: block;
   position: absolute;
   top: 45px;
-  width: 100%;
+  width: 90%;
   background-color: black;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: 16px;
-  border: 0px;
-  border-radius: 0, 4px, 0, 4px;
+  border: none;
+  border-radius: 4px;
   z-index: 2;
 }
 
