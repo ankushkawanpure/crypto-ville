@@ -25,9 +25,7 @@ const sampleFarmerLocation = [
 
 export function fetchProduceDetail(name) {
 	return {
-		price: 10.23,
-		delta: 0.2,
-		deltaPercentage: 3.4
+		price: 10.23
 	}
 };
 
