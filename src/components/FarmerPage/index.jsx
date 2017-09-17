@@ -26,9 +26,11 @@ export default class ProducePage extends Component {
 	}
 
 	update() {
+		const {id} = this.props.match.params;
+
 		this.setState({
-			farmerDetail: fetchFarmerDetail(this.props.id),
-			farmerProduces: fetchFarmerProduces(this.props.id)
+			farmerDetail: fetchFarmerDetail(id),
+			farmerProduces: fetchFarmerProduces(id)
 		});
 	}
 
@@ -49,7 +51,7 @@ export default class ProducePage extends Component {
 					secondaryTitle={`${name}`}
 					secondarySubTitle={`${farmerProduces.length} produces`}
 					offsetThreshold='108'
-					showClose/>
+					showHome/>
 
 					<div className="ProducePageHeader">
 						{farmerDetail.name}

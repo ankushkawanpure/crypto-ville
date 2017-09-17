@@ -2,11 +2,16 @@ import React, {
 	Component
 } from 'react';
 
+import {
+	Link
+} from 'react-router-dom'
+
 import './index.css';
 
 export default class FarmerItem extends Component {
 
 	static defaultProps = {
+		id: 0,
 		name: '',
 		location: '',
 		price: '',
@@ -15,6 +20,7 @@ export default class FarmerItem extends Component {
 
 	render() {
 		const {
+			id,
 			name,
 			location,
 			price,
@@ -22,7 +28,7 @@ export default class FarmerItem extends Component {
 		} = this.props;
 
 		return(
-			<div className="FarmerItem">
+			<Link className="FarmerItem" to={`/farmer/${id}`}>
 				<span className="FarmerContainer">
 						<span className="FarmerNameContainer">
 							<div className="FarmerName">
@@ -34,7 +40,7 @@ export default class FarmerItem extends Component {
 						</span>
 				</span>
 				<span className="FarmerPrice">{currencySymbol}{price}</span>
-		  </div>
+		  </Link>
 		);
 	}
 }

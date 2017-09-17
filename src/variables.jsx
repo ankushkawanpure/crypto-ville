@@ -1,5 +1,7 @@
 export const currencySymbol = '$';
 
+export const mediaPath = '/media';
+
 export const produces = [
     {
         name: "Apple",

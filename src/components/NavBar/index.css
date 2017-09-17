@@ -24,7 +24,7 @@
 	font-size: 0.81em;
 }
 
-.CloseButton {
+.HomeButton {
 	position: absolute;
 	right: 1em;
 	background: gray;
@@ -37,7 +37,28 @@
 	align-items: center;
 }
 
-.CloseIcon {
+.HomeIcon {
+	width: 90%;
+	height: 90%;
+	background: white;
+	border-radius: 100%;
+}
+
+
+.BackButton {
+	position: absolute;
+	left: 1em;
+	background: gray;
+	border-radius: 100%;
+	width: 2em;
+	height: 2em;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.BackIcon {
 	width: 90%;
 	height: 90%;
 	background: white;

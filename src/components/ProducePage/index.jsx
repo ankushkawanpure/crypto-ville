@@ -62,7 +62,7 @@ export default class ProducePage extends Component {
 				<NavBar title={`${name}`} secondaryTitle={`${name} - ${currencySymbol}${valueFormated}.${floatingPoint}`}
 					subTitle={`${produceFarmers.length} farmers`}
 					offsetThreshold='108'
-					showClose/>
+					showHome/>
 
 					<div className="ProducePageHeader">
 						<MoneyValue

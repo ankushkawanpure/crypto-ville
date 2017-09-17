@@ -2,17 +2,18 @@ import React, {
 	Component
 } from 'react';
 
-import './index.css';
-
 import {
 	Link
 } from 'react-router-dom'
 
+import {mediaPath} from 'variables';
+
+import './index.css';
 
 export default class ProduceItem extends Component {
 
 	getIcon = (name) => {
-		return `./media/produces/${name}.png`;
+		return `${mediaPath}/produces/${name}.png`;
 	}
 
 	render() {

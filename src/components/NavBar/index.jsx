@@ -2,7 +2,9 @@ import React, {
 	Component
 } from 'react';
 
-import closeButton from 'assets/x.svg';
+import backIcon from 'assets/back.svg';
+
+import listIcon from 'assets/list.svg';
 
 import {
 	customHistory
@@ -46,14 +48,18 @@ export default class NavBar extends Component {
 		window.removeEventListener('scroll', this.scrollFx);
 	}
 
-	onCloseClicked = () => {
+	goHome = () => {
 		customHistory.push('/');
+	}
+
+	goBack = () => {
+		customHistory.goBack();
 	}
 
 	render() {
 		const {
 			subTitle,
-			showClose
+			showHome
 		} = this.props;
 
 		return(
@@ -61,9 +67,14 @@ export default class NavBar extends Component {
 				className="NavBar" style={{height: this.state.height}}>
 				<h1 className="NavTitle">{this.state.title}</h1>
 				<h2 className="NavSubTitle">{subTitle || this.state.subTitle}</h2>
-				{showClose &&
-					<span className="CloseButton" onClick={this.onCloseClicked}>
-						<img className="CloseIcon" src={closeButton} alt="Close Button"/>
+				{showHome &&
+					<span className="HomeButton" onClick={this.goHome}>
+						<img className="HomeIcon" src={listIcon} alt="Home Button"/>
+					</span>
+				}
+				{customHistory.length > 0 && customHistory.location.pathname !== '/' &&
+					<span className="BackButton" onClick={this.goBack}>
+						<img className="BackIcon" src={backIcon} alt="Back Button"/>
 					</span>
 				}
 		  </div>
