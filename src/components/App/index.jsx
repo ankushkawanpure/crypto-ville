@@ -53,6 +53,7 @@ export default class App extends Component {
 
 		this.updateInterval = setInterval(() => {
 			this.update();
+			this.getBalance()
 		}, 1800);
 
 	}
