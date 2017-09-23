@@ -1,6 +1,6 @@
-export const farmerAddress = "16031591782558841517L";
+export const farmerAddress = "824043333246802701L";
 
-export const liskAddress = "13720472845555216071L";
+export const liskAddress = "16031591782558841517L";
 
 export const liskPassphrase = "good swamp brass scissors useful useful surround sock local liquid swim lady";
 

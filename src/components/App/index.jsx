@@ -40,6 +40,7 @@ export default class App extends Component {
 		this.setState({
 			data: fetchUserWatchlist()
 		});
+
 	}
 
 	componentWillUnmount() {
@@ -49,10 +50,11 @@ export default class App extends Component {
 	componentWillMount() {
 		this.update();
 
-		this.getBalance()
+		this.getBalance();
 
 		this.updateInterval = setInterval(() => {
 			this.update();
+            this.getBalance();
 		}, 1800);
 
 	}
