@@ -37,7 +37,8 @@ const sampleFarmerLocation = [
 	"Eugene, OR"
 ];
 
-const LSK = lisk.api(liskOption);
+let LSK = lisk.api(liskOption);
+
 
 export function fetchProduceDetail(name) {
 	return {
