@@ -5,7 +5,7 @@ export const liskAddress = "16031591782558841517L";
 export const liskPassphrase = "good swamp brass scissors useful useful surround sock local liquid swim lady";
 
 export const liskOption = {
-    ssl: false, // Default false. Set to true to enable the https instead of http protocol.
+    ssl: true, // Default false. Set to true to enable the https instead of http protocol.
     node: '', // Default randomNode. Insert a node without http or https protocol. Use ssl option in order to set http or https.
     randomPeer: true, // Default true. Lisk-js automatically connects to a random peer to get lisk blockchain information. Set to false to disable this behaviour.
     testnet: true, // Default false. Set to true to use the testnet. Set to false to use the mainnet.
