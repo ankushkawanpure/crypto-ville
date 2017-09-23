@@ -47,9 +47,11 @@ export default class BuyPage extends Component {
 	}
 
 	componentWillMount() {
+		this.update();
+
 		this.updateInterval = setInterval(() => {
 			this.update();
-		}, 450);
+		}, 2700);
 	}
 
 	updateQuantity = (e) => {

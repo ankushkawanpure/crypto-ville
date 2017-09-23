@@ -31,15 +31,18 @@ const sampleFarmerList = [
 ];
 
 const sampleFarmerLocation = [
-	"Henrietta NY",
-	"Derpy Land"
+	"Henrietta, NY",
+	"Seracuse, NY",
+	"Seattle, WA",
+	"Eugene, OR"
 ];
 
 const LSK = lisk.api(liskOption);
 
 export function fetchProduceDetail(name) {
 	return {
-		price: 10.23
+		price: getRandomArbitrary(1, 3)
+			.toFixed(3)
 	}
 };
 
@@ -49,7 +52,7 @@ export function fetchProduceFarmers(produceName) {
 			id: i,
 			name: sampleFarmerList[getRandomInt(0, sampleFarmerList.length)],
 			location: sampleFarmerLocation[getRandomInt(0, sampleFarmerLocation.length)],
-			price: getRandomArbitrary(1, 10)
+			price: getRandomArbitrary(1, 3)
 				.toFixed(3)
 		}
 	})
@@ -69,7 +72,7 @@ export function fetchFarmerProduces(id) {
 	return sampleProduceList.map((item) => {
 		return {
 			name: item,
-			price: getRandomArbitrary(1, 10)
+			price: getRandomArbitrary(1, 3)
 				.toFixed(3),
 			farmerCount: getRandomInt(10, 45)
 		}
@@ -86,9 +89,9 @@ export function fetchUserWatchlist() {
 	return sampleWatchList.map((item) => {
 		return {
 			name: item,
-			price: getRandomArbitrary(1, 10)
+			price: getRandomArbitrary(1, 3)
 				.toFixed(3),
-			farmerCount: getRandomInt(10, 45)
+			farmerCount: getRandomInt(3, 6)
 		}
 	})
 };
